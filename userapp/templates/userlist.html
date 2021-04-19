@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en" dir="ltr">
+<head>
+<title>Users List</title>
+<meta charset="utf-8">
+<title>USER LIST</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static "css/base.css"%}">
+</head>
+<body>
+  <div class="jumbotron my-auto">
+    <center><h1>Users Information</h1></center>
+    {% if users %}
+    <table class="table">
+    <thead>
+    <th>User Name</th>
+    <th>URL</th>
+    <th>Phone No.</th>
+    </thead>
+    {% for user in users%}
+    <tr>
+    <td>{{user.name}}</td>
+    <td><a href="{{user.url}}">{{user.url}}</a></td>
+    <td>{{user.phone}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+    <p>No Users Found</p>
+    {%endif%}
+</div>
+</body>
+</html>
